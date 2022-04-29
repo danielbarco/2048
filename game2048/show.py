@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 from r_learning import *
 import sys
-
+import json
 
 # I took the core of this game visualisation code from someone's github repo several weeks ago
 # when i started doing this project. I love the simplicity and psychedelic colors.
@@ -161,10 +161,35 @@ if __name__ == "__main__":
         game = Game.load_game("best_game.npy")
         Show().replay(game, speed=25)
     elif option == 2:
-        agent = Q_agent.load_agent("best_agent.npy")
-        est = agent.evaluate
-        results = Game.trial(estimator=est, num=100)
-        Show().replay(results[0], speed=200)
+        for filename in ["n4_a02_d09_agent.npy", "n4_a02_d092_agent.npy", "n4_a02_d094_agent.npy", "n4_a02_d095_agent.npy", "n4_a02_d099_agent.npy"]:
+            agent = Q_agent.load_agent("best_agent.npy")
+            est = agent.evaluate
+            results = Game.trial(estimator=est, num=100)
+            # Show().replay(results[0], speed=200)
+
+            average = np.average([a.score for a in results])
+            figures = [(1 << np.max(a.row)) for a in results]
+            total_odo = sum([a.odometer for a in results])
+
+            def share(limit):
+                return len([0 for i in figures if i >= limit]) / len(figures) * 100
+
+            dictionary ={
+                "filename" : filename,
+                "average" : average,
+                "reached_2048" : share(2048),
+                "reached_1024" : share(1024),
+                
+            }
+            
+            # Serializing json 
+            json_object = json.dumps(dictionary)
+            
+            # Writing to sample.json
+            with open("results.json", "w") as outfile:
+                outfile.write(json_object)
+
+
     else:
         agent = Q_agent.load_agent("best_agent.npy")
         est = agent.evaluate

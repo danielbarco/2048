@@ -197,27 +197,27 @@ class Game:
             a = Game.trial_run(estimator, game_init=game, verbose=verbose)
             results.append(a)
             fig = 1 << np.max(a.row)
-            print(f'game {i}, result {a.score}, moves {a.odometer}, achieved {fig}, time = {(time.time() - now):.2f}')
-        average = np.average([a.score for a in results])
-        figures = [(1 << np.max(a.row)) for a in results]
-        total_odo = sum([a.odometer for a in results])
+            # print(f'game {i}, result {a.score}, moves {a.odometer}, achieved {fig}, time = {(time.time() - now):.2f}')
+        # average = np.average([a.score for a in results])
+        # figures = [(1 << np.max(a.row)) for a in results]
+        # total_odo = sum([a.odometer for a in results])
         results.sort(key=lambda b: b.score, reverse=True)
 
-        def share(limit):
-            return len([0 for i in figures if i >= limit]) / len(figures) * 100
+        # def share(limit):
+        #     return len([0 for i in figures if i >= limit]) / len(figures) * 100
 
-        for a in results[:3]:
-            print(a)
-        elapsed = time.time() - start
-        print(f'average score of {num} runs = {average}')
-        print(f'8192 reached in {share(8192)}%')
-        print(f'4096 reached in {share(4096)}%')
-        print(f'2048 reached in {share(2048)}%')
-        print(f'1024 reached in {share(1024)}%')
-        print(f'total time = {elapsed}')
-        print(f'average time per move = {elapsed / total_odo * 1000} ms')
-        print(f'total number of shuffles = {Game.counter}')
-        print(f'time per shuffle = {elapsed / Game.counter * 1000} ms')
+        # for a in results[:3]:
+        #     print(a)
+        # elapsed = time.time() - start
+        # print(f'average score of {num} runs = {average}')
+        # print(f'8192 reached in {share(8192)}%')
+        # print(f'4096 reached in {share(4096)}%')
+        # print(f'2048 reached in {share(2048)}%')
+        # print(f'1024 reached in {share(1024)}%')
+        # print(f'total time = {elapsed}')
+        # print(f'average time per move = {elapsed / total_odo * 1000} ms')
+        # print(f'total number of shuffles = {Game.counter}')
+        # print(f'time per shuffle = {elapsed / Game.counter * 1000} ms')
         return results
 
     # replay game in text mode, for debugging purposes
