@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from game2048.r_learning import *
+from r_learning import *
 import sys
 
 
@@ -53,7 +53,8 @@ class Show:
             for j in range(4):
                 v = self.game.row[j, i]
                 v_disp = 1 << v if v else 0
-                pygame.draw.rect(self.board, Show.colour[v], (i * 150 + 2, j * 150 + 100 + 2, 146, 146))
+                pygame.draw.rect(
+                    self.board, Show.colour[v], (i * 150 + 2, j * 150 + 100 + 2, 146, 146))
                 number = self.font.render(str(v_disp), True, Show.WHITE)
                 if v_disp < 10:
                     offset = 10
@@ -66,7 +67,8 @@ class Show:
                 else:
                     offset = 30
                 if v:
-                    self.board.blit(number, (i * 150 + 75 - offset, j * 150 + 160))
+                    self.board.blit(
+                        number, (i * 150 + 75 - offset, j * 150 + 160))
 
     # play yourself
 

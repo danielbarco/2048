@@ -1,4 +1,4 @@
-from game2048.game_logic import *
+from game_logic import *
 
 
 def basic_reward(game, action):
@@ -47,7 +47,8 @@ def f_3(X):
 def f_4(X):
     X_vert = (4096 * X[0, :] + 256 * X[1, :] + 16 * X[2, :] + X[3, :]).ravel()
     X_hor = (4096 * X[:, 0] + 256 * X[:, 1] + 16 * X[:, 2] + X[:, 3]).ravel()
-    X_sq = (4096 * X[:3, :3] + 256 * X[1:, :3] + 16 * X[:3, 1:] + X[1:, 1:]).ravel()
+    X_sq = (4096 * X[:3, :3] + 256 * X[1:, :3] +
+            16 * X[:3, 1:] + X[1:, 1:]).ravel()
     return np.concatenate([X_vert, X_hor, X_sq])
 
 
@@ -66,7 +67,8 @@ def f_4(X):
 
 class Q_agent:
 
-    save_file = "agent.npy"     # saves the weights, training step, current alpha and type of features
+    # saves the weights, training step, current alpha and type of features
+    save_file = "agent.npy"
     feature_functions = {2: f_2, 3: f_3, 4: f_4}
     parameter_shape = {2: (24, 256), 3: (52, 4096), 4: (17, 65536)}
 
@@ -84,7 +86,8 @@ class Q_agent:
         # an initial preference. Most probably this is irrelevant, but i wanted to avoid it.
 
         if weights is None:
-            self.weights = weights or np.random.random((self.num_feat, self.size_feat)) / 100
+            self.weights = weights or np.random.random(
+                (self.num_feat, self.size_feat)) / 100
         else:
             self.weights = weights
 
@@ -159,7 +162,8 @@ class Q_agent:
                         action, best_value = direction, value
             if state:
                 reward = self.R(game, action)
-                dw = self.alpha * (reward + best_value - old_label) / self.num_feat
+                dw = self.alpha * (reward + best_value -
+                                   old_label) / self.num_feat
                 self.update(state, dw)
             game.move(action)
             state, old_label = game.copy(), best_value
@@ -201,7 +205,8 @@ class Q_agent:
                 reached[max_tile - 10] += 1
             if i - start_ep > 100:
                 ma100 = ma100[1:]
-            print(i, game.odometer, game.score, 'reached', 1 << np.max(game.row), '100-ma=', int(np.mean(ma100)))
+            print(i, game.odometer, game.score, 'reached', 1 <<
+                  np.max(game.row), '100-ma=', int(np.mean(ma100)))
             if saving and i % 100 == 0:
                 agent.save_agent()
                 print(f'agent saved in {agent.file}')
@@ -236,4 +241,5 @@ if __name__ == "__main__":
 
     # agent = Q_agent.load_agent(file="best_agent.npy")
 
-    Q_agent.train_run(num_eps, agent=agent, file="new_best_agent.npy", start_ep=0)
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="new_best_agent.npy", start_ep=0)
