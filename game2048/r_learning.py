@@ -229,7 +229,7 @@ class Q_agent:
 
 if __name__ == "__main__":
 
-    num_eps = 100000
+    num_eps = 10000
 
     # Run the below line to see the magic. How it starts with random moves and immediately
     # starts climbing the ladder
