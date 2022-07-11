@@ -1,0 +1,72 @@
+[
+    {
+        "filename": "n4_a02_d09_agent.npy",
+        "average": 23491.0,
+        "total_odo": 126569,
+        "reached_2048": 50.0,
+        "reached_1024": 85.0
+    },
+    {
+        "filename": "n4_a02_d092_agent.npy",
+        "average": 23894.28,
+        "total_odo": 128570,
+        "reached_2048": 55.00000000000001,
+        "reached_1024": 91.0
+    },
+    {
+        "filename": "n4_a02_d094_agent.npy",
+        "average": 28899.28,
+        "total_odo": 151476,
+        "reached_2048": 65.0,
+        "reached_1024": 92.0
+    },
+    {
+        "filename": "n4_a02_d096_agent.npy",
+        "average": 30268.72,
+        "total_odo": 156324,
+        "reached_2048": 70.0,
+        "reached_1024": 90.0
+    },
+    {
+        "filename": "n4_a02_d098_agent.npy",
+        "average": 35290.44,
+        "total_odo": 177452,
+        "reached_2048": 76.0,
+        "reached_1024": 95.0
+    },
+    {
+        "filename": "n4_a02_d099_agent.npy",
+        "average": 25179.16,
+        "total_odo": 130874,
+        "reached_2048": 56.99999999999999,
+        "reached_1024": 91.0
+    },
+    {
+        "filename": "n4_a02_d1_agent.npy",
+        "average": 31469.8,
+        "total_odo": 160636,
+        "reached_2048": 68.0,
+        "reached_1024": 91.0
+    },
+    {
+        "filename": "n4_a01_d099_agent.npy",
+        "average": 26786.48,
+        "total_odo": 141043,
+        "reached_2048": 52.0,
+        "reached_1024": 89.0
+    },
+    {
+        "filename": "n4_a03_d099_agent.npy",
+        "average": 21486.52,
+        "total_odo": 114103,
+        "reached_2048": 48.0,
+        "reached_1024": 82.0
+    },
+    {
+        "filename": "n4_a04_d099_agent.npy",
+        "average": 22297.52,
+        "total_odo": 119728,
+        "reached_2048": 46.0,
+        "reached_1024": 93.0
+    }
+]
