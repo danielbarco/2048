@@ -162,7 +162,7 @@ if __name__ == "__main__":
         game = Game.load_game("best_game.npy")
         Show().replay(game, speed=25)
     elif option == 2:
-        for filename in ["n4_a02_d09_agent.npy", "n4_a02_d092_agent.npy", "n4_a02_d094_agent.npy", "n4_a02_d096_agent.npy", "n4_a02_d098_agent.npy", "n4_a02_d099_agent.npy", "n4_a02_d1_agent.npy", "n4_a01_d099_agent.npy", "n4_a03_d099_agent.npy", "n4_a04_d099_agent.npy"]:
+        for filename in ["n4_a02_d09_agent.npy", "n4_a02_d092_agent.npy", "n4_a02_d094_agent.npy", "n4_a02_d096_agent.npy", "n4_a02_d098_agent.npy", "n4_a02_d099_agent.npy", "n4_a02_d099_agent_2.npy", "n4_a02_d1_agent.npy", "n4_a01_d099_agent.npy", "n4_a03_d099_agent.npy", "n4_a04_d099_agent.npy"]:
             agent = Q_agent.load_agent(filename)
             est = agent.evaluate
             results = Game.trial(estimator=est, num=300)
