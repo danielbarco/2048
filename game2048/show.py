@@ -9,6 +9,7 @@ import json
 # It's a shame i forgot where exactly i got it from. If you are the creator - write me
 # and i will give you the credit in the readme file.
 
+
 class Show:
 
     WHITE = (255, 255, 255)
@@ -161,10 +162,10 @@ if __name__ == "__main__":
         game = Game.load_game("best_game.npy")
         Show().replay(game, speed=25)
     elif option == 2:
-        for filename in ["n4_a02_d09_agent.npy", "n4_a02_d092_agent.npy", "n4_a02_d094_agent.npy", "n4_a02_d095_agent.npy", "n4_a02_d099_agent.npy"]:
-            agent = Q_agent.load_agent("best_agent.npy")
+        for filename in ["n4_a02_d09_agent.npy", "n4_a02_d092_agent.npy", "n4_a02_d094_agent.npy", "n4_a02_d096_agent.npy", "n4_a02_d098_agent.npy", "n4_a02_d099_agent.npy", "n4_a02_d1_agent.npy", "n4_a01_d099_agent.npy", "n4_a03_d099_agent.npy", "n4_a04_d099_agent.npy"]:
+            agent = Q_agent.load_agent(filename)
             est = agent.evaluate
-            results = Game.trial(estimator=est, num=100)
+            results = Game.trial(estimator=est, num=300)
             # Show().replay(results[0], speed=200)
 
             average = np.average([a.score for a in results])
@@ -174,21 +175,27 @@ if __name__ == "__main__":
             def share(limit):
                 return len([0 for i in figures if i >= limit]) / len(figures) * 100
 
-            dictionary ={
-                "filename" : filename,
-                "average" : average,
-                "reached_2048" : share(2048),
-                "reached_1024" : share(1024),
-                
-            }
-            
-            # Serializing json 
-            json_object = json.dumps(dictionary)
-            
-            # Writing to sample.json
-            with open("results.json", "w") as outfile:
-                outfile.write(json_object)
+            dict_results = {
+                "filename": filename,
+                "average": average,
+                'total_odo': total_odo,
+                "reached_8192": share(8192),
+                "reached_4096": share(4096),
+                "reached_2048": share(2048),
+                "reached_1024": share(1024),
 
+            }
+
+            # Writing to sample.json
+            with open('results.json', 'r+') as file:
+                # First we load existing data into a dict.
+                file_data = json.load(file)
+                # Join new_data with file_data inside emp_details
+                file_data.append(dict_results)
+                # Sets file's current position at offset.
+                file.seek(0)
+                # convert back to json.
+                json.dump(file_data, file, indent=4)
 
     else:
         agent = Q_agent.load_agent("best_agent.npy")
