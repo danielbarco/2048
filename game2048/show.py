@@ -197,6 +197,13 @@ if __name__ == "__main__":
                 # convert back to json.
                 json.dump(file_data, file, indent=4)
 
+    elif option == 3:
+        filename = "n4_a02_d099_agent.npy"
+        agent = Q_agent.load_agent(filename)
+        est = agent.evaluate
+        results = Game.trial(estimator=est, num=1)
+        Show().replay(results[0], speed=50)
+
     else:
         agent = Q_agent.load_agent("best_agent.npy")
         est = agent.evaluate

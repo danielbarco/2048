@@ -1,1 +1,92 @@
-[]
+[
+    {
+        "filename": "n4_a02_d09_agent.npy",
+        "average": 23627.373333333333,
+        "total_odo": 383399,
+        "reached_8192": 0.0,
+        "reached_4096": 4.0,
+        "reached_2048": 44.0,
+        "reached_1024": 88.66666666666667
+    },
+    {
+        "filename": "n4_a02_d092_agent.npy",
+        "average": 24961.02666666667,
+        "total_odo": 401837,
+        "reached_8192": 0.0,
+        "reached_4096": 5.333333333333334,
+        "reached_2048": 49.0,
+        "reached_1024": 89.0
+    },
+    {
+        "filename": "n4_a02_d094_agent.npy",
+        "average": 29347.506666666668,
+        "total_odo": 459895,
+        "reached_8192": 0.0,
+        "reached_4096": 10.333333333333334,
+        "reached_2048": 61.33333333333333,
+        "reached_1024": 94.0
+    },
+    {
+        "filename": "n4_a02_d096_agent.npy",
+        "average": 29396.106666666667,
+        "total_odo": 458466,
+        "reached_8192": 0.0,
+        "reached_4096": 11.666666666666666,
+        "reached_2048": 59.333333333333336,
+        "reached_1024": 92.66666666666666
+    },
+    {
+        "filename": "n4_a02_d098_agent.npy",
+        "average": 31658.97333333333,
+        "total_odo": 483732,
+        "reached_8192": 0.0,
+        "reached_4096": 18.0,
+        "reached_2048": 66.33333333333333,
+        "reached_1024": 92.0
+    },
+    {
+        "filename": "n4_a02_d099_agent.npy",
+        "average": 32790.72,
+        "total_odo": 498720,
+        "reached_8192": 0.0,
+        "reached_4096": 18.0,
+        "reached_2048": 72.33333333333334,
+        "reached_1024": 93.33333333333333
+    },
+    {
+        "filename": "n4_a02_d1_agent.npy",
+        "average": 27007.013333333332,
+        "total_odo": 422845,
+        "reached_8192": 0.0,
+        "reached_4096": 8.0,
+        "reached_2048": 59.333333333333336,
+        "reached_1024": 89.0
+    },
+    {
+        "filename": "n4_a01_d099_agent.npy",
+        "average": 28876.24,
+        "total_odo": 450135,
+        "reached_8192": 0.0,
+        "reached_4096": 12.333333333333334,
+        "reached_2048": 61.33333333333333,
+        "reached_1024": 91.33333333333333
+    },
+    {
+        "filename": "n4_a03_d099_agent.npy",
+        "average": 24882.386666666665,
+        "total_odo": 390017,
+        "reached_8192": 0.0,
+        "reached_4096": 6.666666666666667,
+        "reached_2048": 56.99999999999999,
+        "reached_1024": 90.33333333333333
+    },
+    {
+        "filename": "n4_a04_d099_agent.npy",
+        "average": 22425.18666666667,
+        "total_odo": 359061,
+        "reached_8192": 0.0,
+        "reached_4096": 1.3333333333333335,
+        "reached_2048": 53.0,
+        "reached_1024": 89.33333333333333
+    }
+]
