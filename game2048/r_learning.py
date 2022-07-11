@@ -262,20 +262,20 @@ if __name__ == "__main__":
     Q_agent.train_run(num_eps, agent=agent,
                       file="n4_a02_d1_agent.npy", start_ep=0)
 
-    agent = Q_agent(n=4, reward=basic_reward, alpha=0.1,
-                    decay=0.99, file="new_agent.npy")
+    # agent = Q_agent(n=4, reward=basic_reward, alpha=0.1,
+    #                 decay=0.99, file="new_agent.npy")
 
-    Q_agent.train_run(num_eps, agent=agent,
-                      file="n4_a01_d099_agent.npy", start_ep=0)
+    # Q_agent.train_run(num_eps, agent=agent,
+    #                   file="n4_a01_d099_agent.npy", start_ep=0)
 
-    agent = Q_agent(n=4, reward=basic_reward, alpha=0.3,
-                    decay=0.99, file="new_agent.npy")
+    # agent = Q_agent(n=4, reward=basic_reward, alpha=0.3,
+    #                 decay=0.99, file="new_agent.npy")
 
-    Q_agent.train_run(num_eps, agent=agent,
-                      file="n4_a03_d099_agent.npy", start_ep=0)
+    # Q_agent.train_run(num_eps, agent=agent,
+    #                   file="n4_a03_d099_agent.npy", start_ep=0)
 
-    agent = Q_agent(n=4, reward=basic_reward, alpha=0.4,
-                    decay=0.99, file="new_agent.npy")
+    # agent = Q_agent(n=4, reward=basic_reward, alpha=0.4,
+    #                 decay=0.99, file="new_agent.npy")
 
-    Q_agent.train_run(num_eps, agent=agent,
-                      file="n4_a04_d099_agent.npy", start_ep=0)
+    # Q_agent.train_run(num_eps, agent=agent,
+    #                   file="n4_a04_d099_agent.npy", start_ep=0)
