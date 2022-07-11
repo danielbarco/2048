@@ -1,4 +1,5 @@
 from game_logic import *
+import multiprocessing
 
 
 def basic_reward(game, action):
@@ -243,39 +244,77 @@ if __name__ == "__main__":
 
     # Q_agent.train_run(num_eps, agent=agent,
     #                   file="new_best_agent.npy", start_ep=0)
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
+                    decay=0.9, file="training_" + "n4_a02_d09_agent.npy")
+
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a02_d09_agent.npy", start_ep=0)
 
     agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
-                    decay=0.96, file="new_agent.npy")
+                    decay=0.92, file="training_" + "n4_a02_d092_agent.npy")
+
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a02_d092_agent.npy", start_ep=0)
+
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
+                    decay=0.94, file="training_" + "n4_a02_d094_agent.npy")
+
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a02_d094_agent.npy", start_ep=0)
+
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
+                    decay=0.96, file="training_" + "n4_a02_d096_agent.npy")
 
     Q_agent.train_run(num_eps, agent=agent,
                       file="n4_a02_d096_agent.npy", start_ep=0)
 
     agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
-                    decay=0.98, file="new_agent.npy")
+                    decay=0.98, file='training_' + 'n4_a02_d098_agent.npy')
 
     Q_agent.train_run(num_eps, agent=agent,
                       file="n4_a02_d098_agent.npy", start_ep=0)
 
     agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
-                    decay=1, file="new_agent.npy")
+                    decay=1, file='train_' + "n4_a02_d1_agent.npy")
 
     Q_agent.train_run(num_eps, agent=agent,
                       file="n4_a02_d1_agent.npy", start_ep=0)
 
-    # agent = Q_agent(n=4, reward=basic_reward, alpha=0.1,
-    #                 decay=0.99, file="new_agent.npy")
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.1,
+                    decay=0.99, file="new_agent.npy")
 
-    # Q_agent.train_run(num_eps, agent=agent,
-    #                   file="n4_a01_d099_agent.npy", start_ep=0)
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a01_d099_agent.npy", start_ep=0)
 
-    # agent = Q_agent(n=4, reward=basic_reward, alpha=0.3,
-    #                 decay=0.99, file="new_agent.npy")
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.2,
+                    decay=0.99, file='train_' + "n4_a01_d099_agent_2.npy")
 
-    # Q_agent.train_run(num_eps, agent=agent,
-    #                   file="n4_a03_d099_agent.npy", start_ep=0)
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a01_d099_agent_2.npy", start_ep=0)
 
-    # agent = Q_agent(n=4, reward=basic_reward, alpha=0.4,
-    #                 decay=0.99, file="new_agent.npy")
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.3,
+                    decay=0.99, file='train_' + "n4_a03_d099_agent.npy")
 
-    # Q_agent.train_run(num_eps, agent=agent,
-    #                   file="n4_a04_d099_agent.npy", start_ep=0)
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a03_d099_agent.npy", start_ep=0)
+
+    agent = Q_agent(n=4, reward=basic_reward, alpha=0.4,
+                    decay=0.99, file="new_agent.npy")
+
+    Q_agent.train_run(num_eps, agent=agent,
+                      file="n4_a04_d099_agent.npy", start_ep=0)
+
+    # def train_agent(input):
+    #     alpha, decay, filename = input
+    #     agent = Q_agent(n=4, reward=basic_reward, alpha=alpha,
+    #             decay=decay, file="training_" + filename)
+
+    #     Q_agent.train_run(num_eps, agent=agent,
+    #                     file=filename, start_ep=0)
+
+    # list_train = [[0.2, 0.96, "n4_a02_d096_agent.npy"], [0.2, 0.98, "n4_a02_d098_agent.npy"], [0.2, 1, "n4_a02_d1_agent.npy"],]
+
+    # pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+    # pool.map_async(train_agent, list_train)
+    # pool.close()
+    # pool.join()
